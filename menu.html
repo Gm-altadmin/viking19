@@ -58,11 +58,15 @@ header.solid{background:rgba(13,11,8,.95);backdrop-filter:blur(10px);border-bott
 .item-img{flex-shrink:0;width:130px;height:130px;background:#131009;overflow:hidden;border-radius:3px;position:relative}
 .item-img img{width:100%;height:100%;object-fit:cover}
 .item-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#2e2820;font-size:.58rem;letter-spacing:.04em;text-align:center;padding:8px;line-height:1.5}
+.menu-item img{width:120px;height:120px;object-fit:cover;border-radius:6px}
+.menu-item .media{width:120px;height:120px;border-radius:6px}
 .item-body{flex:1;min-width:0}
 .item-header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}
 .item-name{font-family:'EB Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--ink);line-height:1.2}
 .item-price{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:400;color:var(--gold);white-space:nowrap;flex-shrink:0;min-width:60px;text-align:right}
 .item-desc{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.6}
+
+.media::after{display:none !important}
 
 /* FOOTER */
 footer.mini{background:var(--bg);padding:32px 0;text-align:center;border-top:1px solid rgba(244,237,224,.08)}
@@ -85,8 +89,9 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
   .nav-links a{font-size:1.1rem}
   .hero-title{font-size:clamp(2rem,12vw,4rem) !important}
   .cat-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;padding:10px 16px}
-  .menu-item{flex-direction:column !important}
-  .menu-item img{width:100% !important;height:200px !important}
+  .menu-item{display:flex !important;flex-direction:row !important;align-items:center !important;gap:16px !important;padding:16px 0 !important}
+  .menu-item img{width:100px !important;height:100px !important;object-fit:cover !important;border-radius:6px !important;flex-shrink:0 !important}
+  .menu-item .media{width:100px !important;height:100px !important;flex-shrink:0 !important;border-radius:6px !important}
   .menu-hero{grid-template-columns:1fr}
   .hero-img{display:none}
   .hero-center{padding:60px 24px}
