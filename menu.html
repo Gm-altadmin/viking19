@@ -26,8 +26,9 @@ header.solid{background:rgba(13,11,8,.95);backdrop-filter:blur(10px);border-bott
 .nav-links{display:flex;gap:18px;align-items:center;margin-left:auto}
 .nav-links a{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;transition:.25s;color:#f1e8d4}
 .nav-links a:hover{opacity:1;color:var(--gold)}
-.burger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:0}
+.burger{display:flex;flex-direction:column;gap:6px;cursor:pointer;background:none;border:0;z-index:60}
 .burger span{width:26px;height:1.5px;background:var(--ink)}
+@media(min-width:861px){.burger{display:none !important}}
 
 /* HERO */
 .menu-hero{padding-top:var(--hh);display:grid;grid-template-columns:1fr 2fr 1fr;min-height:75vh;background:var(--bg);overflow:hidden;align-items:stretch}
@@ -82,7 +83,6 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
   .wordmark .name{font-size:1rem !important;letter-spacing:.15em !important}
   .wordmark .sub{font-size:.42rem !important}
   header div[style*="flex-direction:column"]{display:none !important}
-  .burger{display:flex !important;z-index:60}
   .nav-links{position:fixed;inset:0;background:rgba(13,11,8,.98);flex-direction:column;justify-content:center;transform:translateX(100%);transition:.4s;display:flex}
   .nav-links.open{position:fixed !important;inset:0 !important;background:rgba(13,11,8,.98) !important;flex-direction:column !important;justify-content:center !important;align-items:center !important;gap:28px !important;transform:translateX(0) !important;z-index:55 !important;display:flex !important}
   .nav-links a{font-size:1.1rem !important;letter-spacing:.2em !important}
@@ -178,7 +178,7 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
     </div>
 
     <!-- Mobil burger -->
-    <button class="burger" id="burger" aria-label="Menü" style="display:none"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
 
   </div>
 </header>
@@ -539,10 +539,6 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
   const hdr = document.getElementById('hdr');
   window.addEventListener('scroll', () => hdr.classList.toggle('solid', window.scrollY > 40));
 
-  const burger = document.getElementById('burger');
-  const navMenu = document.getElementById('main-nav');
-  burger.addEventListener('click', () => navMenu.classList.toggle('open'));
-  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
 
   document.getElementById('yil').textContent = new Date().getFullYear();
 
@@ -642,6 +638,38 @@ function setLang(lang) {
 }
 
 setLang(currentLang);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('main-nav');
+
+  if(burger){
+    burger.addEventListener('click', function(){
+      if(nav.style.display === 'flex'){
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.position = 'fixed';
+        nav.style.inset = '0';
+        nav.style.background = 'rgba(13,11,8,.98)';
+        nav.style.flexDirection = 'column';
+        nav.style.justifyContent = 'center';
+        nav.style.alignItems = 'center';
+        nav.style.gap = '32px';
+        nav.style.zIndex = '55';
+      }
+    });
+  }
+
+  if(nav){
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.style.display = 'none';
+      });
+    });
+  }
+});
 </script>
 </body>
 </html>
