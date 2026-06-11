@@ -29,6 +29,7 @@ header.solid{background:rgba(13,11,8,.95);backdrop-filter:blur(10px);border-bott
 .burger{display:flex;flex-direction:column;gap:6px;cursor:pointer;background:none;border:0;z-index:9999 !important;position:relative}
 .burger span{width:26px;height:1.5px;background:var(--ink)}
 @media(min-width:861px){.burger{display:none !important}}
+@media(max-width:860px){nav[style*="display:flex"][style*="gap:24px"]{display:none !important}}
 
 /* HERO */
 .menu-hero{padding-top:var(--hh);display:grid;grid-template-columns:1fr 2fr 1fr;min-height:75vh;background:var(--bg);overflow:hidden;align-items:stretch}
@@ -67,7 +68,7 @@ header.solid{background:rgba(13,11,8,.95);backdrop-filter:blur(10px);border-bott
 .item-price{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:400;color:var(--gold);white-space:nowrap;flex-shrink:0;min-width:60px;text-align:right}
 .item-desc{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.6}
 
-.media::after{display:none !important}
+.media::after{display:none !important;content:none !important}
 
 /* FOOTER */
 footer.mini{background:var(--bg);padding:32px 0;text-align:center;border-top:1px solid rgba(244,237,224,.08)}
@@ -176,6 +177,11 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
       </div>
 
     </div>
+
+    <nav id="main-nav" style="display:none;position:fixed;inset:0;background:rgba(13,11,8,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;z-index:9998">
+      <a href="menu.html" id="nav-menu-mob" style="font-family:'Inter',sans-serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;text-decoration:none">MENÜ</a>
+      <a href="#rezervasyon" id="nav-rezervasyon-mob" style="font-family:'Inter',sans-serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;text-decoration:none">REZERVASYON</a>
+    </nav>
 
     <!-- Mobil burger -->
     <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
