@@ -78,6 +78,9 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
 
 /* MOBILE */
 @media(max-width:860px){
+  html{overflow-x:hidden}
+  body{overflow-x:visible}
+  :root{--hh:53px}
   header .nav, header > div{padding:12px 16px !important;flex-wrap:nowrap !important;height:auto !important}
   header div[style*="position:absolute"],
   header div[style*="left:50%"]{display:none !important}
@@ -89,7 +92,7 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
   .nav-links a{font-size:1.1rem !important;letter-spacing:.2em !important}
   .hero-title{font-size:clamp(2rem,12vw,4rem) !important}
   .cat-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;padding:10px 16px}
-  .cat-nav-wrap{position:-webkit-sticky;position:sticky;top:60px;-webkit-backdrop-filter:blur(10px)}
+  .cat-nav-wrap{position:-webkit-sticky;position:sticky;top:var(--hh);-webkit-backdrop-filter:blur(10px)}
   .menu-item{display:flex !important;flex-direction:row !important;align-items:center !important;gap:16px !important;padding:16px 0 !important}
   .menu-item img{width:100px !important;height:100px !important;object-fit:cover !important;border-radius:6px !important;flex-shrink:0 !important}
   .menu-item .media{width:100px !important;height:100px !important;flex-shrink:0 !important;border-radius:6px !important}
@@ -108,14 +111,14 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
 }
 
 /* ── WORLD CUP MODE ── */
-.wc-locked{position:relative;overflow:hidden;min-height:300px}
+.wc-locked{position:relative;isolation:isolate;min-height:300px}
 .wc-locked>*:not(.wc-overlay){-webkit-filter:blur(6px);filter:blur(6px);pointer-events:none;user-select:none;transition:-webkit-filter .3s,filter .3s}
 .wc-overlay{
   position:absolute;inset:0;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   z-index:20;padding:24px;text-align:center;
-  background:rgba(13,11,8,.4);
-  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)
+  background:rgba(13,11,8,.75);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)
 }
 .lock-inner{
   background:rgba(15,15,15,0.92);
@@ -200,7 +203,7 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
       <!-- Nav linkleri — logo ile hizalı -->
       <nav style="display:flex;gap:24px;align-items:center">
         <a href="menu.html" id="nav-menu" style="font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;opacity:.85;text-decoration:none;transition:.25s" onmouseover="this.style.color='#c9a45a';this.style.opacity='1'" onmouseout="this.style.color='#f1e8d4';this.style.opacity='.85'">MENÜ</a>
-        <a href="#rezervasyon" id="nav-rezervasyon" style="font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;opacity:.85;text-decoration:none;transition:.25s" onmouseover="this.style.color='#c9a45a';this.style.opacity='1'" onmouseout="this.style.color='#f1e8d4';this.style.opacity='.85'">REZERVASYON</a>
+        <a href="#" id="nav-rezervasyon" class="js-rez-open" style="font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;opacity:.85;text-decoration:none;transition:.25s" onmouseover="this.style.color='#c9a45a';this.style.opacity='1'" onmouseout="this.style.color='#f1e8d4';this.style.opacity='.85'">REZERVASYON</a>
       </nav>
 
       <!-- Dil butonları — altında boşluklu -->
@@ -215,7 +218,7 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
 
     <nav id="main-nav" style="display:none;position:fixed;inset:0;background:rgba(13,11,8,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;z-index:9998">
       <a href="menu.html" id="nav-menu-mob" style="font-family:'Inter',sans-serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;text-decoration:none">MENÜ</a>
-      <a href="#rezervasyon" id="nav-rezervasyon-mob" style="font-family:'Inter',sans-serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;text-decoration:none">REZERVASYON</a>
+      <a href="#" id="nav-rezervasyon-mob" class="js-rez-open" style="font-family:'Inter',sans-serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:#f1e8d4;text-decoration:none">REZERVASYON</a>
       <div style="display:flex;gap:32px;margin-top:16px;padding-top:24px;border-top:1px solid rgba(244,237,224,.15)">
         <a href="https://www.instagram.com/viking19hole/" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;opacity:.9">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -269,6 +272,9 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
 <div class="cat-nav-wrap">
   <nav class="cat-nav" id="cat-nav">
     <a href="#dunya-kupasi" id="cat-dunya" class="active">2026 Dünya Kupası</a>
+    <a href="#alkol" id="cat-alkol">Alkollü İçecekler</a>
+    <a href="#soguk" id="cat-soguk">Soğuk İçecekler</a>
+    <a href="#sicak" id="cat-sicak">Sıcak İçecekler</a>
     <a href="#noodle" id="cat-noodle">Noodle / Makarna</a>
     <a href="#burger" id="cat-burger">Burger Çeşitleri</a>
     <a href="#beyaz-et" id="cat-beyaz">Beyaz Etler</a>
@@ -276,9 +282,6 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
     <a href="#salata" id="cat-salata">Salatalar</a>
     <a href="#tatlilar" id="cat-tatli">Tatlılar</a>
     <a href="#vegan" id="cat-vegan">Vegan</a>
-    <a href="#soguk" id="cat-soguk">Soğuk İçecekler</a>
-    <a href="#sicak" id="cat-sicak">Sıcak İçecekler</a>
-    <a href="#alkol" id="cat-alkol">Alkollü İçecekler</a>
   </nav>
 </div>
 
@@ -290,227 +293,6 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
     <img src="images/slide3.png" alt="Dünya Kupası Menü 3" style="width:100%;border-radius:6px;object-fit:contain">
     <img src="images/slide4.png" alt="Dünya Kupası Menü 4" style="width:100%;border-radius:6px;object-fit:contain">
     <img src="images/slide5.png" alt="Dünya Kupası Menü 5" style="width:100%;border-radius:6px;object-fit:contain">
-  </div>
-</section>
-
-<!-- NOODLE / MAKARNA -->
-<section class="menu-section" id="noodle">
-  <div class="section-title" id="section-noodle">Noodle / Makarna</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_noodle_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-1" data-i18n-tr="Hazar - Veggie Noodle" data-i18n-en="Hazar - Veggie Noodle" data-i18n-ru="Хазар - Веганская лапша" data-i18n-de="Hazar - Veggie Nudeln">Hazar - Veggie Noodle</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_noodle_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-2" data-i18n-tr="Fairway - Noodle Chicken &amp; Vegetable" data-i18n-en="Fairway - Noodle Chicken &amp; Vegetable" data-i18n-ru="Фэйрвэй - Лапша с курицей и овощами" data-i18n-de="Fairway - Nudeln mit Hähnchen &amp; Gemüse">Fairway - Noodle Chicken &amp; Vegetable</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_noodle_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_3.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-3" data-i18n-tr="Birdie - Noodle Ribeye Steak &amp; Vegetables" data-i18n-en="Birdie - Noodle Ribeye Steak &amp; Vegetables" data-i18n-ru="Бёрди - Лапша с рибай и овощами" data-i18n-de="Birdie - Nudeln mit Ribeye &amp; Gemüse">Birdie - Noodle Ribeye Steak &amp; Vegetables</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- BURGER ÇEŞİTLERİ -->
-<section class="menu-section" id="burger">
-  <div class="section-title" id="section-burger">Burger Çeşitleri</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_burger_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-1" data-i18n-tr="Par - Çıtır Tavuk Burger" data-i18n-en="Par - Crispy Chicken Burger" data-i18n-ru="Пар - Хрустящий бургер с курицей" data-i18n-de="Par - Knuspriger Hähnchenburger">Par - Çıtır Tavuk Burger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_burger_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-2" data-i18n-tr="Ace - Smash Burger" data-i18n-en="Ace - Smash Burger" data-i18n-ru="Эйс - Смэш-бургер" data-i18n-de="Ace - Smash Burger">Ace - Smash Burger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_burger_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_3.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-3" data-i18n-tr="Albatros - Smash Cheeseburger" data-i18n-en="Albatros - Smash Cheeseburger" data-i18n-ru="Альбатрос - Смэш-чизбургер" data-i18n-de="Albatros - Smash Cheeseburger">Albatros - Smash Cheeseburger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_burger_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_4.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-4" data-i18n-tr="Patates Kızartması" data-i18n-en="French Fries" data-i18n-ru="Картофель фри" data-i18n-de="Pommes Frites">Patates Kızartması</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- BEYAZ ETLER -->
-<section class="menu-section" id="beyaz-et">
-  <div class="section-title" id="section-beyaz">Beyaz Etler</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_beyaz_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-1" data-i18n-tr="Tee Off - Ekşi Tatlı Tavuk" data-i18n-en="Tee Off - Sweet Sour Chicken" data-i18n-ru="Ти Офф - Кисло-сладкая курица" data-i18n-de="Tee Off - Süß-saures Hähnchen">Tee Off - Ekşi Tatlı Tavuk</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_beyaz_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-2" data-i18n-tr="Chicken Shot" data-i18n-en="Chicken Shot" data-i18n-ru="Чикен Шот" data-i18n-de="Chicken Shot">Chicken Shot</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_beyaz_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_3.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-3" data-i18n-tr="Chip Shot - Tavuk Taco" data-i18n-en="Chip Shot - Chicken Taco" data-i18n-ru="Чип Шот - Тако с курицей" data-i18n-de="Chip Shot - Hähnchen Taco">Chip Shot - Tavuk Taco</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_beyaz_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_4.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-4" data-i18n-tr="Putter - Izgara Tavuk" data-i18n-en="Putter - Grilled Chicken" data-i18n-ru="Паттер - Жареная курица" data-i18n-de="Putter - Gegrilltes Hähnchen">Putter - Izgara Tavuk</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_beyaz_5.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_5.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-5" data-i18n-tr="Golfers - Tavuk Quesadilla" data-i18n-en="Golfers - Chicken Quesadilla" data-i18n-ru="Голфэрс - Кесадилья с курицей" data-i18n-de="Golfers - Hähnchen Quesadilla">Golfers - Tavuk Quesadilla</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- KIRMIZI ETLER -->
-<section class="menu-section" id="kirmizi-et">
-  <div class="section-title" id="section-kirmizi">Kırmızı Etler</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_kirmizi_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-1" data-i18n-tr="Bunker Shot - Biftek Taco" data-i18n-en="Bunker Shot - Steak Taco" data-i18n-ru="Бункер Шот - Тако со стейком" data-i18n-de="Bunker Shot - Steak Taco">Bunker Shot - Biftek Taco</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_kirmizi_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-2" data-i18n-tr="Golfers - Biftek Quesadilla" data-i18n-en="Golfers - Steak Quesadilla" data-i18n-ru="Голфэрс - Кесадилья со стейком" data-i18n-de="Golfers - Steak Quesadilla">Golfers - Biftek Quesadilla</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_kirmizi_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_3.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-3" data-i18n-tr="Viking19 - Dana Bonfile" data-i18n-en="Viking19 - Beef Tenderloin" data-i18n-ru="Викинг19 - Говяжья вырезка" data-i18n-de="Viking19 - Rinderfilet">Viking19 - Dana Bonfile</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SALATALAR -->
-<section class="menu-section" id="salata">
-  <div class="section-title" id="section-salata">Salatalar</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_salata_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-1" data-i18n-tr="Caddies - Caesar Salata" data-i18n-en="Caddies - Caesar Salad" data-i18n-ru="Кэддис - Салат Цезарь" data-i18n-de="Caddies - Caesar Salat">Caddies - Caesar Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_salata_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-2" data-i18n-tr="Green - Avokado Salata" data-i18n-en="Green - Avocado Salad" data-i18n-ru="Грин - Салат с авокадо" data-i18n-de="Green - Avocado Salat">Green - Avokado Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_salata_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_3.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-3" data-i18n-tr="Hole In - Tayland Usulü Tavuk Salata" data-i18n-en="Hole In - Thai Chicken Salad" data-i18n-ru="Хол Ин - Тайский куриный салат" data-i18n-de="Hole In - Thai Hähnchensalat">Hole In - Tayland Usulü Tavuk Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_salata_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_4.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-4" data-i18n-tr="Eagle - Tavuklu Caesar Salata" data-i18n-en="Eagle - Chicken Caesar Salad" data-i18n-ru="Игл - Салат Цезарь с курицей" data-i18n-de="Eagle - Hähnchen Caesar Salat">Eagle - Tavuklu Caesar Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TATLILAR -->
-<section class="menu-section" id="tatlilar">
-  <div class="section-title" id="section-tatli">Tatlılar</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_tatli_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_tatli_1.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-tatli-1" data-i18n-tr="Driver - Churros" data-i18n-en="Driver - Churros" data-i18n-ru="Драйвер - Чуррос" data-i18n-de="Driver - Churros">Driver - Churros</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-    <div class="menu-item">
-      <div class="item-img"><img src="images/menu_tatli_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_tatli_2.webp</div></div>
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-tatli-2" data-i18n-tr="Birdie Putt - Kızarmış Dondurma" data-i18n-en="Birdie Putt - Deep Fried Ice Cream" data-i18n-ru="Бёрди Патт - Жареное мороженое" data-i18n-de="Birdie Putt - Frittiertes Eis">Birdie Putt - Kızarmış Dondurma</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- VEGAN -->
-<section class="menu-section" id="vegan">
-  <div class="section-title" id="section-vegan">Vegan</div>
-  <div class="menu-items">
-    <div class="menu-item">
-      
-      <div class="item-body"><div class="item-header"><span class="item-name" id="item-vegan-1" data-i18n-tr="Green - Sebze Tempura Tabağı" data-i18n-en="Green - Veggie Tempura Plate" data-i18n-ru="Грин - Тарелка темпура с овощами" data-i18n-de="Green - Gemüse Tempura Teller">Green - Sebze Tempura Tabağı</span><span class="item-price"></span></div><div class="item-desc"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SOĞUK İÇECEKLER -->
-<section class="menu-section" id="soguk">
-  <div class="section-title" id="section-soguk">Soğuk İçecekler</div>
-  <div>
-    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">GAZLI / KUTU</h3>
-    <div class="menu-items">
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Coca Cola</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cola Zero</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Fanta</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sprite</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">1 lt Fanta</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sprite 1 lt</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Tea</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Tonik</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Soda</span><span class="item-price">₺70</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Büyük Soda</span><span class="item-price">₺140</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Red Bull</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Capri Sun</span><span class="item-price">₺65</span></div><div class="item-desc"></div></div></div>
-    </div>
-  </div>
-  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
-    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">SU & AYRAN</h3>
-    <div class="menu-items">
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Küçük Su</span><span class="item-price">₺40</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Büyük Su</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ayran</span><span class="item-price">₺80</span></div><div class="item-desc"></div></div></div>
-    </div>
-  </div>
-  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
-    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">MEYVE SULARI & LİMONATA</h3>
-    <div class="menu-items">
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Portakal Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ananas Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Elma Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Vişne Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Limonata</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Churchill (Çörçil)</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
-    </div>
-  </div>
-  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
-    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">SOĞUK KAHVE & MİLKSHAKE</h3>
-    <div class="menu-items">
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Latte</span><span class="item-price">₺200</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Caramel Latte</span><span class="item-price">₺220</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Milkshake (Çeşitler)</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
-    </div>
-  </div>
-  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
-    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">ALKOLSÜZ KOKTEYl (MOCKTAİL)</h3>
-    <div class="menu-items">
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Coco Grov</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Blue Lagoon Mocktail</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Virgin Mary</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Tugi</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cinderella</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Rainbow</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
-      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Blue Mojito</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SICAK İÇECEKLER -->
-<section class="menu-section" id="sicak">
-  <div class="section-title" id="section-sicak">Sıcak İçecekler</div>
-  <div class="menu-items">
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Çay</span><span class="item-price">₺60</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Duble Çay</span><span class="item-price">₺100</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sıcak Süt</span><span class="item-price">₺50</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Kış Çayı</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Bitki Çayı</span><span class="item-price">₺80</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Salep</span><span class="item-price">₺75</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sıcak Çikolata</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Türk Kahvesi</span><span class="item-price">₺120</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Double Türk Kahvesi</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Espresso</span><span class="item-price">₺120</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Double Espresso</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Americano</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Filtre Kahve</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Latte</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cappuccino</span><span class="item-price">₺160</span></div><div class="item-desc"></div></div></div>
-    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Mocha</span><span class="item-price">₺160</span></div><div class="item-desc"></div></div></div>
   </div>
 </section>
 
@@ -653,11 +435,232 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
   </div>
 </section>
 
+<!-- SOĞUK İÇECEKLER -->
+<section class="menu-section" id="soguk">
+  <div class="section-title" id="section-soguk">Soğuk İçecekler</div>
+  <div>
+    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">GAZLI / KUTU</h3>
+    <div class="menu-items">
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Coca Cola</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cola Zero</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Fanta</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sprite</span><span class="item-price">₺110</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">1 lt Fanta</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sprite 1 lt</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Tea</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Tonik</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Soda</span><span class="item-price">₺70</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Büyük Soda</span><span class="item-price">₺140</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Red Bull</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Capri Sun</span><span class="item-price">₺65</span></div><div class="item-desc"></div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
+    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">SU & AYRAN</h3>
+    <div class="menu-items">
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Küçük Su</span><span class="item-price">₺40</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Büyük Su</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ayran</span><span class="item-price">₺80</span></div><div class="item-desc"></div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
+    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">MEYVE SULARI & LİMONATA</h3>
+    <div class="menu-items">
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Portakal Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ananas Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Elma Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Vişne Suyu</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Limonata</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Churchill (Çörçil)</span><span class="item-price">₺90</span></div><div class="item-desc"></div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
+    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">SOĞUK KAHVE & MİLKSHAKE</h3>
+    <div class="menu-items">
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Latte</span><span class="item-price">₺200</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Ice Caramel Latte</span><span class="item-price">₺220</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Milkshake (Çeşitler)</span><span class="item-price">₺250</span></div><div class="item-desc"></div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(244,237,224,.1)">
+    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.3em;color:#c9a45a;margin-bottom:28px">ALKOLSÜZ KOKTEYl (MOCKTAİL)</h3>
+    <div class="menu-items">
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Coco Grov</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Blue Lagoon Mocktail</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Virgin Mary</span><span class="item-price">₺270</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Tugi</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cinderella</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Rainbow</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
+      <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Blue Mojito</span><span class="item-price">₺300</span></div><div class="item-desc"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SICAK İÇECEKLER -->
+<section class="menu-section" id="sicak">
+  <div class="section-title" id="section-sicak">Sıcak İçecekler</div>
+  <div class="menu-items">
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Çay</span><span class="item-price">₺60</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Duble Çay</span><span class="item-price">₺100</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sıcak Süt</span><span class="item-price">₺50</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Kış Çayı</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Bitki Çayı</span><span class="item-price">₺80</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Salep</span><span class="item-price">₺75</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Sıcak Çikolata</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Türk Kahvesi</span><span class="item-price">₺120</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Double Türk Kahvesi</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Espresso</span><span class="item-price">₺120</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Double Espresso</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Americano</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Filtre Kahve</span><span class="item-price">₺150</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Latte</span><span class="item-price">₺180</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Cappuccino</span><span class="item-price">₺160</span></div><div class="item-desc"></div></div></div>
+    <div class="menu-item"><div class="item-body"><div class="item-header"><span class="item-name">Mocha</span><span class="item-price">₺160</span></div><div class="item-desc"></div></div></div>
+  </div>
+</section>
+
+<!-- NOODLE / MAKARNA -->
+<section class="menu-section" id="noodle">
+  <div class="section-title" id="section-noodle">Noodle / Makarna</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_noodle_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-1" data-i18n-tr="Hazar - Veggie Noodle" data-i18n-en="Hazar - Veggie Noodle" data-i18n-ru="Хазар - Веганская лапша" data-i18n-de="Hazar - Veggie Nudeln">Hazar - Veggie Noodle</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_noodle_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-2" data-i18n-tr="Fairway - Noodle Chicken &amp; Vegetable" data-i18n-en="Fairway - Noodle Chicken &amp; Vegetable" data-i18n-ru="Фэйрвэй - Лапша с курицей и овощами" data-i18n-de="Fairway - Nudeln mit Hähnchen &amp; Gemüse">Fairway - Noodle Chicken &amp; Vegetable</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_noodle_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_noodle_3.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-noodle-3" data-i18n-tr="Birdie - Noodle Ribeye Steak &amp; Vegetables" data-i18n-en="Birdie - Noodle Ribeye Steak &amp; Vegetables" data-i18n-ru="Бёрди - Лапша с рибай и овощами" data-i18n-de="Birdie - Nudeln mit Ribeye &amp; Gemüse">Birdie - Noodle Ribeye Steak &amp; Vegetables</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BURGER ÇEŞİTLERİ -->
+<section class="menu-section" id="burger">
+  <div class="section-title" id="section-burger">Burger Çeşitleri</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_burger_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-1" data-i18n-tr="Par - Çıtır Tavuk Burger" data-i18n-en="Par - Crispy Chicken Burger" data-i18n-ru="Пар - Хрустящий бургер с курицей" data-i18n-de="Par - Knuspriger Hähnchenburger">Par - Çıtır Tavuk Burger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_burger_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-2" data-i18n-tr="Ace - Smash Burger" data-i18n-en="Ace - Smash Burger" data-i18n-ru="Эйс - Смэш-бургер" data-i18n-de="Ace - Smash Burger">Ace - Smash Burger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_burger_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_3.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-3" data-i18n-tr="Albatros - Smash Cheeseburger" data-i18n-en="Albatros - Smash Cheeseburger" data-i18n-ru="Альбатрос - Смэш-чизбургер" data-i18n-de="Albatros - Smash Cheeseburger">Albatros - Smash Cheeseburger</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_burger_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_burger_4.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-burger-4" data-i18n-tr="Patates Kızartması" data-i18n-en="French Fries" data-i18n-ru="Картофель фри" data-i18n-de="Pommes Frites">Patates Kızartması</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYAZ ETLER -->
+<section class="menu-section" id="beyaz-et">
+  <div class="section-title" id="section-beyaz">Beyaz Etler</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_beyaz_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-1" data-i18n-tr="Tee Off - Ekşi Tatlı Tavuk" data-i18n-en="Tee Off - Sweet Sour Chicken" data-i18n-ru="Ти Офф - Кисло-сладкая курица" data-i18n-de="Tee Off - Süß-saures Hähnchen">Tee Off - Ekşi Tatlı Tavuk</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_beyaz_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-2" data-i18n-tr="Chicken Shot" data-i18n-en="Chicken Shot" data-i18n-ru="Чикен Шот" data-i18n-de="Chicken Shot">Chicken Shot</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_beyaz_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_3.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-3" data-i18n-tr="Chip Shot - Tavuk Taco" data-i18n-en="Chip Shot - Chicken Taco" data-i18n-ru="Чип Шот - Тако с курицей" data-i18n-de="Chip Shot - Hähnchen Taco">Chip Shot - Tavuk Taco</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_beyaz_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_4.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-4" data-i18n-tr="Putter - Izgara Tavuk" data-i18n-en="Putter - Grilled Chicken" data-i18n-ru="Паттер - Жареная курица" data-i18n-de="Putter - Gegrilltes Hähnchen">Putter - Izgara Tavuk</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_beyaz_5.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_beyaz_5.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-beyaz-5" data-i18n-tr="Golfers - Tavuk Quesadilla" data-i18n-en="Golfers - Chicken Quesadilla" data-i18n-ru="Голфэрс - Кесадилья с курицей" data-i18n-de="Golfers - Hähnchen Quesadilla">Golfers - Tavuk Quesadilla</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KIRMIZI ETLER -->
+<section class="menu-section" id="kirmizi-et">
+  <div class="section-title" id="section-kirmizi">Kırmızı Etler</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_kirmizi_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-1" data-i18n-tr="Bunker Shot - Biftek Taco" data-i18n-en="Bunker Shot - Steak Taco" data-i18n-ru="Бункер Шот - Тако со стейком" data-i18n-de="Bunker Shot - Steak Taco">Bunker Shot - Biftek Taco</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_kirmizi_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-2" data-i18n-tr="Golfers - Biftek Quesadilla" data-i18n-en="Golfers - Steak Quesadilla" data-i18n-ru="Голфэрс - Кесадилья со стейком" data-i18n-de="Golfers - Steak Quesadilla">Golfers - Biftek Quesadilla</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_kirmizi_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_kirmizi_3.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-kirmizi-3" data-i18n-tr="Viking19 - Dana Bonfile" data-i18n-en="Viking19 - Beef Tenderloin" data-i18n-ru="Викинг19 - Говяжья вырезка" data-i18n-de="Viking19 - Rinderfilet">Viking19 - Dana Bonfile</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SALATALAR -->
+<section class="menu-section" id="salata">
+  <div class="section-title" id="section-salata">Salatalar</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_salata_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-1" data-i18n-tr="Caddies - Caesar Salata" data-i18n-en="Caddies - Caesar Salad" data-i18n-ru="Кэддис - Салат Цезарь" data-i18n-de="Caddies - Caesar Salat">Caddies - Caesar Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_salata_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-2" data-i18n-tr="Green - Avokado Salata" data-i18n-en="Green - Avocado Salad" data-i18n-ru="Грин - Салат с авокадо" data-i18n-de="Green - Avocado Salat">Green - Avokado Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_salata_3.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_3.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-3" data-i18n-tr="Hole In - Tayland Usulü Tavuk Salata" data-i18n-en="Hole In - Thai Chicken Salad" data-i18n-ru="Хол Ин - Тайский куриный салат" data-i18n-de="Hole In - Thai Hähnchensalat">Hole In - Tayland Usulü Tavuk Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_salata_4.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_salata_4.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-salata-4" data-i18n-tr="Eagle - Tavuklu Caesar Salata" data-i18n-en="Eagle - Chicken Caesar Salad" data-i18n-ru="Игл - Салат Цезарь с курицей" data-i18n-de="Eagle - Hähnchen Caesar Salat">Eagle - Tavuklu Caesar Salata</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TATLILAR -->
+<section class="menu-section" id="tatlilar">
+  <div class="section-title" id="section-tatli">Tatlılar</div>
+  <div class="menu-items">
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_tatli_1.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_tatli_1.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-tatli-1" data-i18n-tr="Driver - Churros" data-i18n-en="Driver - Churros" data-i18n-ru="Драйвер - Чуррос" data-i18n-de="Driver - Churros">Driver - Churros</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+    <div class="menu-item">
+      <div class="item-img"><img src="images/menu_tatli_2.webp" alt="" onerror="this.style.display='none'"><div class="ph">menu_tatli_2.webp</div></div>
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-tatli-2" data-i18n-tr="Birdie Putt - Kızarmış Dondurma" data-i18n-en="Birdie Putt - Deep Fried Ice Cream" data-i18n-ru="Бёрди Патт - Жареное мороженое" data-i18n-de="Birdie Putt - Frittiertes Eis">Birdie Putt - Kızarmış Dondurma</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VEGAN -->
+<section class="menu-section" id="vegan">
+  <div class="section-title" id="section-vegan">Vegan</div>
+  <div class="menu-items">
+    <div class="menu-item">
+
+      <div class="item-body"><div class="item-header"><span class="item-name" id="item-vegan-1" data-i18n-tr="Green - Sebze Tempura Tabağı" data-i18n-en="Green - Veggie Tempura Plate" data-i18n-ru="Грин - Тарелка темпура с овощами" data-i18n-de="Green - Gemüse Tempura Teller">Green - Sebze Tempura Tabağı</span><span class="item-price"></span></div><div class="item-desc"></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="mini">
   <nav>
     <a href="menu.html">Menü</a>
-    <a href="#" onclick="document.getElementById('rez-popup').style.display='flex';return false">Rezervasyon</a>
+    <a href="#" class="js-rez-open">Rezervasyon</a>
   </nav>
   <div class="copy">© <span id="yil"></span> VIKING19 GOLF PUB</div>
 </footer>
@@ -668,17 +671,17 @@ footer.mini .copy{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing
     <button onclick="document.getElementById('rez-popup').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:0;color:#b6a890;font-size:1.4rem;cursor:pointer">✕</button>
     <h3 style="font-family:'Cinzel',serif;color:#f1e8d4;font-size:1.3rem;letter-spacing:.12em;margin-bottom:8px">REZERVASYON</h3>
     <p style="font-family:'Inter',sans-serif;color:#b6a890;font-size:.82rem;letter-spacing:.06em;margin-bottom:32px">İletişim kanalınızı seçin</p>
-    <a href="https://wa.me/905322622773" target="_blank" style="display:flex;align-items:center;gap:16px;background:#25D366;color:#fff;padding:16px 24px;border-radius:4px;text-decoration:none;margin-bottom:12px;font-family:'Inter';font-size:.9rem;font-weight:500" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+    <a href="https://wa.me/905453198870" target="_blank" style="display:flex;align-items:center;gap:16px;background:#25D366;color:#fff;padding:16px 24px;border-radius:4px;text-decoration:none;margin-bottom:12px;font-family:'Inter';font-size:.9rem;font-weight:500" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
-    <a href="https://t.me/+905322622773" target="_blank" style="display:flex;align-items:center;gap:16px;background:#229ED9;color:#fff;padding:16px 24px;border-radius:4px;text-decoration:none;margin-bottom:12px;font-family:'Inter';font-size:.9rem;font-weight:500" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+    <a href="https://t.me/+905453198870" target="_blank" style="display:flex;align-items:center;gap:16px;background:#229ED9;color:#fff;padding:16px 24px;border-radius:4px;text-decoration:none;margin-bottom:12px;font-family:'Inter';font-size:.9rem;font-weight:500" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       Telegram
     </a>
-    <a href="tel:+905322622773" style="display:flex;align-items:center;gap:16px;background:transparent;color:#f1e8d4;padding:16px 24px;border-radius:4px;text-decoration:none;border:1px solid rgba(244,237,224,.2);font-family:'Inter';font-size:.9rem;font-weight:400" onmouseover="this.style.borderColor='#c9a45a';this.style.color='#c9a45a'" onmouseout="this.style.borderColor='rgba(244,237,224,.2)';this.style.color='#f1e8d4'">
+    <a href="tel:+905453198870" style="display:flex;align-items:center;gap:16px;background:transparent;color:#f1e8d4;padding:16px 24px;border-radius:4px;text-decoration:none;border:1px solid rgba(244,237,224,.2);font-family:'Inter';font-size:.9rem;font-weight:400" onmouseover="this.style.borderColor='#c9a45a';this.style.color='#c9a45a'" onmouseout="this.style.borderColor='rgba(244,237,224,.2)';this.style.color='#f1e8d4'">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-      +90 532 262 27 73
+      +90 545 319 88 70
     </a>
   </div>
 </div>
@@ -1041,8 +1044,7 @@ function wcUpdateLockTexts() {
     msg.className = 'lock-msg';
 
     var btn = document.createElement('button');
-    btn.className = 'lock-cta';
-    btn.onclick = function() { document.getElementById('rez-popup').style.display = 'flex'; };
+    btn.className = 'lock-cta js-rez-open';
 
     inner.appendChild(msg);
     inner.appendChild(btn);
@@ -1056,6 +1058,14 @@ function wcUpdateLockTexts() {
   var _origSetLang = setLang;
   setLang = function(lang) { _origSetLang(lang); wcUpdateLockTexts(); };
 })();
+
+/* Rezervasyon popup — tek delegated listener, tüm .js-rez-open elementleri yakalar */
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.js-rez-open')) {
+    e.preventDefault();
+    document.getElementById('rez-popup').style.display = 'flex';
+  }
+});
 </script>
 </body>
 </html>
